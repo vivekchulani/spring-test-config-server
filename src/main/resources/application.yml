@@ -1,16 +1,20 @@
 server:
-  port:
-    8888
+  port: 8888
 
 spring:
   application:
     name: spring-test-config-server
-
-
-cloud:
-  config:
-    server:
-      git:
-        uri:
-        username:
-        password:
+  profiles:
+    active: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/vivekchulani/spring-cloud-config-properties.git
+          skipSslValidation: true
+          username:
+          password:
+    bus:
+      enabled: true
+  kafka:
+    bootstrap-servers: http://localhost:9092
